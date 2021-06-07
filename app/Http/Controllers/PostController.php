@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdatePost;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -22,7 +24,18 @@ class PostController extends Controller
     }
 
     public function store(StoreUpdatePost $request){
-        $post = Post::create($request->all());
+
+        $data = $request->all();
+
+        if ($request->image->isValid()) {
+
+            $nameFile = Str::of($request->title)->slug('-').'.'.$request->image->getClientOriginalExtension();
+            
+            $image = $request->image->storeAs('posts', $nameFile);
+            $data['image'] = $image;
+        }
+
+        Post::create($data);
         
         return redirect()
             ->route('posts.index')
@@ -50,6 +63,9 @@ class PostController extends Controller
         if (!$post = Post::find($id))
             return redirect()->route('posts.index');
 
+        if (Storage::exists($post->image))
+            Storage::delete($post->image);
+
         $post->delete();
 
         return redirect()
@@ -68,8 +84,21 @@ class PostController extends Controller
         if (!$post = Post::find($id)){
             return redirect()->back();
         }
+
+        $data = $request->all();
+
+        if ($request->image && $request->image->isValid()) {
+            if (Storage::exists($post->image))
+                Storage::delete($post->image);
+
+            $nameFile = Str::of($request->title)->slug('-').'.'.$request->image->getClientOriginalExtension();
+            
+            $image = $request->image->storeAs('posts', $nameFile);
+            $data['image'] = $image;
+        }
+
         //dd("Editando o post {$post->id}");
-        $post->update($request->all());
+        $post->update($data);
         
         return redirect()
             ->route('posts.index')
@@ -84,6 +113,9 @@ class PostController extends Controller
             ->orWhere('content', 'LIKE', "%{$request->search}%")
             ->paginate(2);
 
-        return view('admin.post.index', compact('posts', 'filters'));    }
+        return view('admin.post.index', compact('posts', 'filters'));    
+    }
+
+
     
 }
