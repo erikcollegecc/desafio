@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdatePost;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+
 
 class PostController extends Controller
 {

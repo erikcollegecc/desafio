@@ -3,9 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProdutosController;
 
-Route::middleware(['auth'])->group(function(){
+Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
+Route::get('/produtos/create', [ProdutosController::class, 'create'])->name('produtos.create');
+Route::post('/produtos', [ProdutosController::class, 'store'])->name('produtos.store');
+Route::get('/produtos/{id}', [ProdutosController::class, 'show'])->name('produtos.show');
 
+
+//Route::middleware(['auth'])->group(function(){
+    //Rota de comentarios dos produtos
     Route::any('/posts/search', [PostController::class, 'search'])->name('posts.search');
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
@@ -16,7 +23,7 @@ Route::middleware(['auth'])->group(function(){
     Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
 
 
-});
+//});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

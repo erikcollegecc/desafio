@@ -14,23 +14,20 @@ class CreateProdutosTable extends Migration
     public function up()
     {
         Schema::create('produtos', function (Blueprint $table) {
-            $table->bigIncrements('id_produto');
-            $table->char('nome_produto')->unique();;
-            $table->longText('descricao');
-            $table->string('breve_descricao');
-            $table->string('tipo_produto');
-            //$table->decimal('max_price');
-            //$table->decimal('min_price');
-            $table->string('ref');
-            //$table->('data_publicacao');
-            //$table->('data_update');
-            $table->string('atributos');
-            $table->boolean('atributos_visivel');
-            $table->string('image');
+            $table->increments('id_p');
+            $table->char('nome_produto')->unique();
+            $table->longText('descricao')->nullable();
+            $table->string('breve_descricao')->nullable();
+            $table->string('tipo_produto')->nullable();
+            //$table->string('tipo_produto')->unsigned();
+            //$table->foreign('tipo_produto')->references('id_tp')->on('tipo_produtos')->onDelete('cascade');
+            $table->string('ref')->nullable();
+            $table->string('atributos')->nullable();
+            $table->boolean('atributos_visivel')->nullable();
+            $table->string('variação')->nullable();
+            $table->string('image')->nullable();
+            $table->timestamps();
             //$table->('');
-
-
-
         });
     }
 

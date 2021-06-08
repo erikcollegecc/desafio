@@ -17,7 +17,9 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title', 160)->unique();
             $table->string('image');
-            $table->text('content')->nullable;
+            $table->text('content')->nullable();
+            //$table->integer('id_prod')->unsigned();
+            //$table->foreign('id_prod')->references('id_p')->on('produtos')->onDelete('cascade');
             $table->timestamps();
         });
     }

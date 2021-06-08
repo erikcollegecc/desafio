@@ -13,7 +13,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
-     *
+     * Os atributos que são atribuidos em massa
      * @var array
      */
     protected $fillable = [
@@ -24,7 +24,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be hidden for arrays.
-     *
+     * Os atributos que podem ser escondido por arrays
      * @var array
      */
     protected $hidden = [
@@ -34,7 +34,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be cast to native types.
-     *
+     * Os atributos que podem ser moldar para tipos nativos
      * @var array
      */
     protected $casts = [
