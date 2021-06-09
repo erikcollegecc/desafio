@@ -18,6 +18,7 @@ Route::delete('/produtos/{id}', [ProdutosController::class, 'destroy'])->name('p
 Route::get('/produtos/edit/{id}', [ProdutosController::class, 'edit'])->name('produtos.edit');
 Route::put('/produtos/{id}', [ProdutosController::class, 'update'])->name('produtos.update');
 
+
 //Route::middleware(['auth'])->group(function(){
     //Rota de comentarios dos produtos
     Route::any('/posts/search', [PostController::class, 'search'])->name('posts.search');

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>Detalhes dos Produtos {{ $produto->nome_produto }}</h1>
+    <h1 class="text-center text-3x1 uppercase font-black my-4">Detalhes dos Produtos {{ $produto->nome_produto }}</h1>
 
     <ul>
         <li><strong>Produto: </strong>{{ $produto->nome_produto }}</li>
