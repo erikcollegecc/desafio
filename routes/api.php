@@ -4,13 +4,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiProdutosController;
 
+// Rotas de API 
 Route::get('produtos', [ApiProdutosController::class, 'index']);
-//Route::get('produtos', [ApiProdutosController::class, 'create']);
-Route::post('produtos', [ApiProdutosController::class, 'store']);
-Route::get('produtos/{id}', [ApiProdutosController::class, 'show']);
-//Route::get('produtos', [ApiProdutosController::class, 'edit']);
-Route::put('produtos/{id}', [ApiProdutosController::class, 'update']);
-Route::delete('produtos/{id}', [ApiProdutosController::class, 'destroy']);
+Route::get('produto/{id}', [ApiProdutosController::class, 'show']);
+Route::post('produto', [ApiProdutosController::class, 'store']);
+Route::put('produto/{id}', [ApiProdutosController::class, 'update']);
+Route::delete('produto/{id}', [ApiProdutosController::class, 'destroy']);
 
 /*
 |--------------------------------------------------------------------------

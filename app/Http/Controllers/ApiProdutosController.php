@@ -14,12 +14,6 @@ class ApiProdutosController extends Controller
     {
         $produtos = Produtos::paginate(15);
         return ProdutosResource::collection($produtos);
-        //return Produtos::all();
-    }
-
-    public function create()
-    {
-        
     }
 
     public function store(Request $request)
@@ -27,6 +21,13 @@ class ApiProdutosController extends Controller
         $produto = new Produtos;
         $produto->nome_produto = $request->input('nome_produto');
         $produto->descricao = $request->input('descricao');
+        $produto->breve_descricao = $request->input('breve_descricao');
+        $produto->tipo_produto = $request->input('tipo_produto');
+        $produto->ref = $request->input('ref');
+        $produto->nome_atributos = $request->input('nome_atributos');
+        $produto->atributos = $request->input('atributos');
+        $produto->atributos_visivel = $request->input('atributos_visivel');
+        $produto->image = $request->input('image');
 
         if( $produto->save() ){
             return new ProdutosResource( $produto );
@@ -37,11 +38,6 @@ class ApiProdutosController extends Controller
     {
         $produto = Produtos::findOrFail( $id );
         return new ProdutosResource( $produto );
-    }
-
-    public function edit($id)
-    {
-        
     }
 
     public function update(Request $request, $id)
