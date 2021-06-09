@@ -22,7 +22,7 @@ Criei uma área para comentários e uma para produtos, sendo que a ideia seria d
 
 ## Seguransa
 
-Nesta parte, para impedir comentários de pessoas não cadastradas, foi implementado o beezer para controlar cadastro, perda de senha e as áreas restritas.
+Nesta parte, para impedir comentários de pessoas não cadastradas, foi implementado o Breeze para controlar cadastro, perda de senha e as áreas restritas.
 
 ## Template
 
