@@ -2,9 +2,9 @@
 
 <p align="center">
 <a href=""><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href=""><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href=""><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href=""><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
 ## Sobre o desafio
@@ -14,7 +14,7 @@ O Laravel era um framework que nunca tinha utilizado, senti-me familiarizado mes
 
 ## Versão 
 
-Aprofundando-me sobre esse poderoso framework, identifiquei suas diversas versões, o que levou a duvida de qual versão utilizar, por fim utilizei a versão 8 por ser a mais atual.
+Aprofundando-me sobre esse poderoso framework, identifiquei suas diversas versões, o que levou a duvida de qual versão utilizar, por fim utilizei a versão 8.45.1 por ser a mais atual.
 
 ## Learning Laravel
 
