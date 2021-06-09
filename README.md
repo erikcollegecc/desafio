@@ -16,29 +16,22 @@ O Laravel era um framework que nunca tinha utilizado, senti-me familiarizado mes
 
 Aprofundando-me sobre esse poderoso framework, identifiquei suas diversas versões, o que levou a duvida de qual versão utilizar, por fim utilizei a versão 8.45.1 por ser a mais atual.
 
-## Learning Laravel
+## A Construção
 
+Criou-se uma área para comentários e uma para produtos, sendo que elas poderiam se relacionar.
 
+## Seguransa
 
-## Laravel Sponsors
+Para uma área segura e para impedir comentários de pessoas não cadastradas, foi implementado o beezer para controlar cadastro, perda de senha e as áreas restritas.
 
+## Template
 
+Para template, foi instalado Tailwind.
 
-### Premium Partners
-
-
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
 ## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
