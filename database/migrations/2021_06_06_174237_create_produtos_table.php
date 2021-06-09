@@ -22,7 +22,7 @@ class CreateProdutosTable extends Migration
             //$table->integer('tipo_produto')->unsigned();
             //$table->foreign('tipo_produto')->references('id_tp')->on('tipo_produtos')->onDelete('cascade');
             $table->string('ref')->nullable();
-            $table->string('nome_atributo')->nullable();
+            $table->string('nome_atributos')->nullable();
             $table->string('atributos')->nullable();
             $table->boolean('atributos_visivel')->nullable();
             $table->string('image')->nullable();

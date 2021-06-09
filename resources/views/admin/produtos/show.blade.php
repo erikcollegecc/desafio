@@ -11,7 +11,7 @@
         <li><strong>Descrição: </strong>{{ $produto->descricao }}</li>
         <li><strong>Breve descrição: </strong>{{ $produto->breve_descricao }}</li>
         <li><strong>Referência: </strong>{{ $produto->ref }}</li>
-        <li><strong>Atributos: </strong>{{ $produto->atributos }}</li>
+        <li><strong>Atributos: </strong>{{ $produto->nome_atributos }}</li>
         <li><strong>Imagem: </strong>{{ $produto->image }}</li>
     </ul>
     <br>

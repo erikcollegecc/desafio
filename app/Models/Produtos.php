@@ -17,7 +17,7 @@ class Produtos extends Model
         'breve_descricao',
         'tipo_produto',
         'ref',
-        'nome_atributo',
+        'nome_atributos',
         'atributos',
         'atributos_visivel',
         'image',

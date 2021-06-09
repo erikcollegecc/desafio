@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpadareProduto;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProdutosController extends Controller
 {
@@ -21,22 +23,36 @@ class ProdutosController extends Controller
     }
 
     public function store(StoreUpadareProduto $request){
-        $produto = Produtos::create($request->all());
+        $data = $request->all();
+
+        if ($request->image->isValid()) {
+
+            $nameFile = Str::of($request->nome_produto)->slug('-').'.'.$request->image->getClientOriginalExtension();
+            
+            $image = $request->image->storeAs('produtos', $nameFile);
+            $data['image'] = $image;
+        }
+
+        Produtos::create($data);
+
         return redirect()->route('produtos.index');
 
     }
 
     public function show($id){
         if (!$produto = Produtos::find($id)){
-            return redirect()->route('produtos.index')->with('message', 'Produto cadastrado com sucesso!');
+            return redirect()->route('produtos.index');
         }
         
-        return view('admin.produtos.show', compact('produto'));
+        return view('admin.produtos.show', compact('produto'))->with('message', 'Produto cadastrado com sucesso!');
     }
 
     public function destroy($id){
         if (!$produto = Produtos::find($id))
             return redirect()->route('produtos.index');
+
+        if (Storage::exists($produto->image))
+            Storage::delete($produto->image);
 
         $produto->delete();
 
@@ -58,12 +74,21 @@ class ProdutosController extends Controller
             return redirect()->back('');
         }
 
-        $produto->update($request->all());
+        $data = $request->all();
+
+        if ($request->image && $request->image->isValid()) {
+            if (Storage::exists($produto->image))
+                Storage::delete($produto->image);
+
+            $nameFile = Str::of($request->nome_produto)->slug('-').'.'.$request->image->getClientOriginalExtension();
+            
+            $image = $request->image->storeAs('produtos', $nameFile);
+            $data['image'] = $image;
+        }
+
+        $produto->update($data);
 
         return redirect()->route('produtos.index')->with('message', 'Produto atualizado com sucesso!');
-
-
-        dd("Editar produto: {$produto->id}");
     }
 
     public function search(Request $request){

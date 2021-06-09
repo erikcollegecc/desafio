@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreUpadareProduto extends FormRequest
 {
@@ -21,10 +22,14 @@ class StoreUpadareProduto extends FormRequest
      *
      * @return array
      */
+    
     public function rules()
     {
-        return [
-            'nome_produto' => 'required|min:3|max:160',
+        $id = $this->segment(2);
+
+        $rule = [
+            'nome_produto' => ['required', 'min:3',  'max:160', 
+            Rule::unique('produtos')->ignore($id), ],
             'descricao' => ['nullable', 'min:5', 'max:10000'],
             'breve_descricao' => ['nullable', 'min:5', 'max:255'],
             'tipo_produto' => ['required'],
@@ -34,5 +39,11 @@ class StoreUpadareProduto extends FormRequest
             'atributos_visivel' => ['nullable'],
             'image' => ['nullable'],
         ];
+
+        if ($this->method == 'PUT') {
+            $rule['image'] = ['nullable', 'image'];
+        }
+        
+        return $rule;
     }
 }
