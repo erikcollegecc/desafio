@@ -27,7 +27,8 @@
             {{ $post->title }} 
             [
                 <a href="{{ route('posts.show', $post->id) }}">Ver</a> |
-                <a href="{{ route('posts.edit', $post->id) }}">Editar</a>
+                <a href="{{ route('posts.edit', $post->id) }}">Editar</a> |
+                <a href="{{ route('posts.destroy', $post->id) }}">Excluir</a>
             ]
         </p>
     @endforeach

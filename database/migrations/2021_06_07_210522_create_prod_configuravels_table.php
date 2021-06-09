@@ -14,10 +14,10 @@ class CreateProdConfiguravelsTable extends Migration
     public function up()
     {
         Schema::create('prod_configuravels', function (Blueprint $table) {
-            $table->increments('id_pc');
+            $table->increments('id');
             $table->string('name');
             $table->integer('id_produto')->unsigned();
-            $table->foreign('id_produto')->references('id_p')->on('produtos')->onDelete('cascade');
+            $table->foreign('id_produto')->references('id')->on('produtos')->onDelete('cascade');
             $table->timestamps();
         });
     }

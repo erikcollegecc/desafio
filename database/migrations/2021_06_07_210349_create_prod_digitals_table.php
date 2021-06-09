@@ -14,10 +14,10 @@ class CreateProdDigitalsTable extends Migration
     public function up()
     {
         Schema::create('prod_digitals', function (Blueprint $table) {
-            $table->increments('id_pd');
+            $table->increments('id');
             $table->string('name_digi');
             $table->integer('id_simples')->unsigned();
-            $table->foreign('id_simples')->references('id_ps')->on('pord_simples')->onDelete('cascade');
+            $table->foreign('id_simples')->references('id')->on('pord_simples')->onDelete('cascade');
             $table->string('prod_dital');
             $table->timestamps();
         });

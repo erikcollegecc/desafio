@@ -110,7 +110,7 @@ class PostController extends Controller
         //dd("search {$request->search}");
         $filters = $request->except('_token');
 
-        $posts = Post::where('title', '=', "%{$request->search}%")
+        $posts = Post::where('title', 'like', "%{$request->search}%")
             ->orWhere('content', 'LIKE', "%{$request->search}%")
             ->paginate(2);
 

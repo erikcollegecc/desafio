@@ -5,11 +5,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProdutosController;
 
+//Rotas para *** 
+
+
+//Rotas para produtos
+Route::any('/produtos/search', [ProdutosController::class, 'search'])->name('produtos.search');
 Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
 Route::get('/produtos/create', [ProdutosController::class, 'create'])->name('produtos.create');
 Route::post('/produtos', [ProdutosController::class, 'store'])->name('produtos.store');
 Route::get('/produtos/{id}', [ProdutosController::class, 'show'])->name('produtos.show');
-
+Route::delete('/produtos/{id}', [ProdutosController::class, 'destroy'])->name('produtos.destroy');
+Route::get('/produtos/edit/{id}', [ProdutosController::class, 'edit'])->name('produtos.edit');
+Route::put('/produtos/{id}', [ProdutosController::class, 'update'])->name('produtos.update');
 
 //Route::middleware(['auth'])->group(function(){
     //Rota de comentarios dos produtos

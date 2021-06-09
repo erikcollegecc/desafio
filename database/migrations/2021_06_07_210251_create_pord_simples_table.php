@@ -14,10 +14,10 @@ class CreatePordSimplesTable extends Migration
     public function up()
     {
         Schema::create('pord_simples', function (Blueprint $table) {
-            $table->increments('id_ps');
-            $table->char('nome');
+            $table->increments('id');
+            //$table->char('nome');
             $table->integer('id_prod')->unsigned();
-            $table->foreign('id_prod')->references('id_p')->on('produtos')->onDelete('cascade');
+            $table->foreign('id_prod')->references('id')->on('produtos')->onDelete('cascade');
             $table->decimal('max_price');
             $table->decimal('min_price');
             //$table->('validade_price');
