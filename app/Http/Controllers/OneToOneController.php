@@ -42,7 +42,8 @@ class OneToOneController extends Controller
     public function oneToOneShow($id){
         //dd($id);
         $country = Country::find($id);
-        dd($country->name);
+        //dd($country->name);
+        dd($country->location->latitude);
 
     }
 

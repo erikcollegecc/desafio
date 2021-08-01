@@ -41,7 +41,7 @@
                     <td style="width: 5%;">{{$produto->id}}</td>
                     <td style="width: 20%;">{{$produto->nome_produto}}</td>
                     <td style="width: 20%;">{{$produto->ref}}</td>
-                    <td style="width: 20%;"></td>
+                    <td style="width: 20%;">{{$produto->prodsimples->max_price}}</td>
                     <td style="width: 10%;">{{$produto->created_at}}</td>
                     <td style="width: 7.5%;">{{$produto->image}}</td>
                     <td style="width: 7.5%;">

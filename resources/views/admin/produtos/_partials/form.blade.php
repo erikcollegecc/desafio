@@ -18,7 +18,7 @@
     <option @if ('tipo_produto == 1')
         
     @endif value="{{('1')}}">Produto Simples</option>
-    <option @if ('tipo_prouto == 2')
+    <option @if ('tipo_produto == 2')
         
     @endif value="{{('2')}}">Grupo de Produtos</option>
     <option @if ('tipo_produto == 3')

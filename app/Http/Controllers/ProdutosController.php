@@ -16,6 +16,10 @@ class ProdutosController extends Controller
 {
     public function index() {
         $produtos = Produtos::orderBy('id', 'DESC')->paginate(2);
+
+        //$produtos = Produtos::find(3);
+        //echo "$produtos->nome_produto";
+        //dd($produtos->prodsimples->max_price); 
         
         //$produto = Produtos::where('id', '$id')->get()->first();
         //$prodsimples = $produto->prodsimples()->get()->first();

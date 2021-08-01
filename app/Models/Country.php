@@ -37,7 +37,7 @@ class Country extends Model
     }
 
     /**
-     * METODO "states" para buscas todos estados vinculado ao pais
+     * METODO "states" para buscar todos estados vinculado ao pais
      */
     public function states(){
 
@@ -54,10 +54,9 @@ class Country extends Model
     }
 
     /**
-     * METODO "cities" para buaca todas as cidades vinculadas ao pais sem precisar buscar os estados
+     * METODO "cities" para busca todas as cidades vinculadas ao pais sem precisar buscar os estados
      */
     public function cities(){
-
         return $this->hasManyThrough(City::class, State::class);
     }
 

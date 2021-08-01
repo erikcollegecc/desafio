@@ -28,4 +28,5 @@ class Produtos extends Model
     public function prodsimples() {
         return $this->hasOne(ProdSimples::class);
     }
+    
 }

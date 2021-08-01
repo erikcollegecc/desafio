@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\State;
-use App\Models\City;
-use App\Models\Comment;
+
 
 class OneToManyController extends Controller
 {
@@ -169,22 +168,6 @@ class OneToManyController extends Controller
 
         echo "<br>Total de cidades: {$cities->count()}";
 
-    }
-
-
-    /**
-     * Teste pois a controller nao esta sendo encontrada
-     */
-    public function PolymorphicInsert(){
-
-        $city = City::where('id', '1')->get()->first();
-        echo $city->name;
-
-        $comment = $city->comments()->create([
-            'description' => "New Comment {$city->name} ".date('YmdHis'),
-        ]);
-
-        var_dump($comment);
     }
 
 }

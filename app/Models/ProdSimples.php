@@ -16,4 +16,9 @@ class ProdSimples extends Model
         'max_price', 
         'min_price'
     ];
+
+    public function produto(){
+        return $this->belongsTo(Produtos::class);
+    }
+
 }
