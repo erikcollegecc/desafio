@@ -55,7 +55,11 @@
     <input type="text" name="nome_atributos" id="nome_atributos" placeholder="Nome atributos" value="{{$produto->nome_atributos ?? old('nome_atributos')}}"><br>
     <textarea type="text" name="atributos" id="atributos" cols='30' rows="3" placeholder="Coloque as caracteristacas do produto e separe com |">{{$produto->atributos ?? old('atributos')}}</textarea>
     <input type="checkbox" name="atributos_visivel" id="atributo_visivel"><label>Visível na página de produto</label><br>
+    
     <hr>
+    
     <label for=""><strong>Imagem do produto: </strong></label><input type="file" name="image" id="image" value="{{$produto->image ?? old('image')}}"><br>
+    
     <hr>
+    
     <button type="submit">Salvar</button>

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpadareProduto;
 use App\Models\Produtos;
+use App\Models\ProdSimples;
+use App\Models\ProdDigital;
+use App\Models\ProdAgrupado;
+use App\Models\ProdConfiguravel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -12,10 +16,16 @@ class ProdutosController extends Controller
 {
     public function index() {
         $produtos = Produtos::orderBy('id', 'DESC')->paginate(2);
+        
+        //$produto = Produtos::where('id', '$id')->get()->first();
+        //$prodsimples = $produto->prodsimples()->get()->first();
 
-        //$produtos = Produtos::get();
- 
-        return view('admin.produtos.index', compact('produtos'));    
+        return view('admin.produtos.index', compact('produtos'));
+
+        //echo $produto->nome_produto;
+
+        //dd($prodsimples->max_price);
+        
     }
 
     public function create(){

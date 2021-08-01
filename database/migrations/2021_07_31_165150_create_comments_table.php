@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdAgrupadosTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateProdAgrupadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('prod_agrupados', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name_agru');
-            $table->integer('produtos_id')->unsigned();
-            $table->foreign('produtos_id')->references('id')->on('produtos')->onDelete('cascade');
+        Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+            $table->text('description');
+            $table->morphs('commentable');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateProdAgrupadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prod_agrupados');
+        Schema::dropIfExists('comments');
     }
 }

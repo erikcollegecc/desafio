@@ -16,8 +16,8 @@ class CreateProdConfiguravelsTable extends Migration
         Schema::create('prod_configuravels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('id_produto')->unsigned();
-            $table->foreign('id_produto')->references('id')->on('produtos')->onDelete('cascade');
+            $table->integer('produtos_id')->unsigned();
+            $table->foreign('produtos_id')->references('id')->on('produtos')->onDelete('cascade');
             $table->timestamps();
         });
     }

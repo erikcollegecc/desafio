@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdDigitalsTable extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateProdDigitalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prod_digitals', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('prod_simples_id')->unsigned();
-            $table->foreign('prod_simples_id')->references('id')->on('prod_simples')->onDelete('cascade');
-            $table->string('upload');
+            $table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->string('latitude', 60);
+            $table->string('longitude', 60);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateProdDigitalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prod_digitals');
+        Schema::dropIfExists('locations');
     }
 }

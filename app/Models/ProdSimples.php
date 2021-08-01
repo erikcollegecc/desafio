@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProdConfiguravel extends Model
+class ProdSimples extends Model
 {
     use HasFactory;
 
-    protected $table = 'prod_configuravels';
+    protected $table = 'prod_simples';
 
     protected $fillable = [ 
-        'name', 
-        'id_produto',
+        'produtos_id', 
+        'max_price', 
+        'min_price'
     ];
 }

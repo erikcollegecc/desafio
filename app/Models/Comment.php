@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PordSimples extends Model
+class Comment extends Model
 {
     use HasFactory;
 
-    protected $table = 'pord_simples';
+    protected $fillable = ['description'];
 
-    protected $fillable = ['nome', 'id_prod', 'max_price', 'min_price'];
+    public function commentable(){
+
+        return $this->morphTo();
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdDigitalsTable extends Migration
+class CreateCountriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateProdDigitalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prod_digitals', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('prod_simples_id')->unsigned();
-            $table->foreign('prod_simples_id')->references('id')->on('prod_simples')->onDelete('cascade');
-            $table->string('upload');
+            $table->string('name', 150)->unique();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateProdDigitalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prod_digitals');
+        Schema::dropIfExists('countries');
     }
 }
